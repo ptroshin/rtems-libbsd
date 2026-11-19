@@ -12,6 +12,24 @@ and a recent RTEMS kernel for your BSP configured with networking disabled
 built and installed. If you already have this you can skip to step 3 of the
 build procedure.
 
+GRUSBDC USB device controller
+-----------------------------
+
+The Gaisler GRUSBDC driver supports USB 2.0 peripheral mode. It exposes a
+virtual root hub with one port to the LibBSD USB stack and handles physical
+EP0 requests directly.
+
+The LEON3 BSP must define `BSP_HAS_GRUSBDC` and provide `<bsp/grusbdc.h>`
+with the controller address, IRQ, and platform hooks for initialization and
+interrupt routing. This integration was tested on the Paradigm-4 BSP.
+
+For a bulk echo check on a system with one USB device controller, include
+`<rtems/bsd/grusbdc.h>` and call
+`rtems_bsd_grusbdc_use_echo_template()` before `rtems_bsd_initialize()`.
+The application explicitly selects this global test profile. The host sees
+USB ID `16c0:27dd` with one vendor-specific interface. Send data to bulk
+endpoint `0x01` and read the echo from endpoint `0x81`.
+
 Building and Installing LibBSD
 ------------------------------
 
