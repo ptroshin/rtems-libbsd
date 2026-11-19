@@ -48,6 +48,9 @@
   defined(LIBBSP_ARM_XILINX_ZYNQ_BSP_H) || (defined(LIBBSP_ARM_LPC32XX_BSP_H) && !defined(LPC32XX_DISABLE_MMU)) || defined(LIBBSP_ARM_IMX_BSP_H)
   /* With cache, no coherency support in hardware */
   #define CPU_DATA_CACHE_ALIGNMENT 32
+#elif defined(LIBBSP_SPARC_LEON3_BSP_H)
+  /* LEON3 data cache uses 64-byte lines and has no DMA coherency. */
+  #define CPU_DATA_CACHE_ALIGNMENT 64
 #elif defined(__GEN83xx_BSP_h)
   /* With cache, coherency support in hardware */
 #endif

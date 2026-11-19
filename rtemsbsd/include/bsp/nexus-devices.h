@@ -41,7 +41,15 @@
 #include <machine/rtems-bsd-nexus-bus.h>
 
 
-#if defined(LIBBSP_ARM_REALVIEW_PBX_A9_BSP_H)
+#if defined(LIBBSP_SPARC_LEON3_BSP_H) && defined(BSP_HAS_GRUSBDC)
+
+#include <bsp/grusbdc.h>
+
+RTEMS_BSD_DRIVER_GRUSBDC;
+SYSINIT_DRIVER_REFERENCE(grusbdc, nexus);
+SYSINIT_DRIVER_REFERENCE(uhub, usbus);
+
+#elif defined(LIBBSP_ARM_REALVIEW_PBX_A9_BSP_H)
 
 #include <bsp/irq.h>
 

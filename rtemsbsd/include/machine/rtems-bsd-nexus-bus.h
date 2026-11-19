@@ -282,6 +282,27 @@ extern "C" {
                                   &usb_saf1761_otg_res[0])
 #endif /* RTEMS_BSD_DRIVER_USB_SAF1761_OTG */
 
+/*
+ * Gaisler GRUSBDC.
+ */
+#if !defined(RTEMS_BSD_DRIVER_GRUSBDC)
+  #define RTEMS_BSD_DRIVER_GRUSBDC                                      \
+    static const rtems_bsd_device_resource grusbdc0_res[] = {           \
+      {                                                                 \
+        .type = RTEMS_BSD_RES_MEMORY,                                   \
+        .start_request = 0,                                             \
+        .start_actual = BSP_GRUSBDC_BASE                               \
+      }, {                                                              \
+        .type = RTEMS_BSD_RES_IRQ,                                      \
+        .start_request = 0,                                             \
+        .start_actual = BSP_GRUSBDC_IRQ                                \
+      }                                                                 \
+    };                                                                  \
+    RTEMS_BSD_DEFINE_NEXUS_DEVICE(grusbdc, 0,                           \
+                                  RTEMS_ARRAY_SIZE(grusbdc0_res),       \
+                                  &grusbdc0_res[0])
+#endif /* RTEMS_BSD_DRIVER_GRUSBDC */
+
 /**
  ** Networking
  **/

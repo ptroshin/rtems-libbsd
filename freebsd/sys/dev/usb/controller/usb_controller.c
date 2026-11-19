@@ -138,6 +138,7 @@ DRIVER_MODULE(usbus, xhci, usb_driver, usb_devclass, 0, 0);
 DRIVER_MODULE(usbus, musbotg, usb_driver, usb_devclass, 0, 0);
 DRIVER_MODULE(usbus, uss820dci, usb_driver, usb_devclass, 0, 0);
 DRIVER_MODULE(usbus, octusb, usb_driver, usb_devclass, 0, 0);
+DRIVER_MODULE(usbus, grusbdc, usb_driver, usb_devclass, 0, 0);
 
 /* Dual Mode Drivers */
 DRIVER_MODULE(usbus, dwcotg, usb_driver, usb_devclass, 0, 0);

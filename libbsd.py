@@ -273,6 +273,8 @@ class rtems(builder.Module):
                 'sys/dev/smc/if_smc_nexus.c',
                 'sys/dev/tsec/if_tsec_nexus.c',
                 'sys/dev/usb/controller/ehci_mpc83xx.c',
+                'sys/dev/usb/controller/grusbdc.c',
+                'sys/dev/usb/controller/grusbdc_template.c',
                 'sys/dev/usb/controller/ohci_lpc32xx.c',
                 'sys/dev/usb/controller/ohci_lpc.c',
                 'sys/dev/usb/controller/usb_otg_transceiver.c',
